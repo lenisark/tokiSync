@@ -1,11 +1,127 @@
 {
-  "version": "1.8.1",
+  "version": "1.8.4",
   "rules": [
     {
-      "id": "toki_common",
-      "name": "토끼 계열 (뉴토끼/마나토끼) 통합 규칙",
-      "urlPattern": ".*(newtoki|manatoki|comic|booktoki).*",
+      "id": "toki_newto_webtoon",
+      "name": "뉴토끼 웹툰 규칙",
+      "urlPattern": "https?:\\/\\/([^\\/]+\\.)?(newtoki\\d+|newto\\d+)\\.com\\/webtoon\\/.*",
       "category": "Webtoon",
+      "meta": {
+        "title": {
+          "selector": "meta[name=\"subject\"]",
+          "attr": "content"
+        },
+        "author": {
+          "selector": ".view-content",
+          "regex": "(?:작가|저자|글작가|글)\\s*:\\s*([^ \\n\\r,·/]+)"
+        },
+        "thumb": {
+          "selector": "img[itemprop=\"image\"]",
+          "attr": "src"
+        },
+        "status": {
+          "selector": ".view-content",
+          "regex": "(완결|연재중)"
+        },
+        "summary": {
+          "selector": "meta[property=\"og:description\"]",
+          "attr": "content"
+        }
+      },
+      "list": {
+        "container": ".list-body",
+        "item": "li",
+        "num": ".wr-num",
+        "title": "a",
+        "link": {
+          "selector": "a",
+          "attr": "href"
+        }
+      },
+      "viewer": {
+        "fetchMethod": "iframe",
+        "keyDiscovery": {
+          "regex": "data_attribute\\s*:\\s*['\"]([^'\"]+)['\"]",
+          "prefix": "data-"
+        },
+        "imageRegex": "https?:\\\\/\\\\/[^\"' ]+\\\\.(?:jpg|png|webp)",
+        "imageContainer": ".view-padding",
+        "imageItem": "div img",
+        "lazyAttrOptions": [
+          "data-src",
+          "data-original",
+          "data-lazy",
+          "data-url",
+          "data-img"
+        ],
+        "seriesTitle": "meta[property=\"og:title\"]",
+        "episodeTitle": "h1, .view-title",
+        "novelContent": "#novel_content"
+      }
+    },
+    {
+      "id": "toki_mato_manga",
+      "name": "마나토끼 만화 규칙",
+      "urlPattern": "https?:\\/\\/([^\\/]+\\.)?(manatoki\\d+\\.net|mato\\d+\\.com)\\/comic\\/.*",
+      "category": "Manga",
+      "meta": {
+        "title": {
+          "selector": "meta[name=\"subject\"]",
+          "attr": "content"
+        },
+        "author": {
+          "selector": ".view-content",
+          "regex": "(?:작가|저자|글작가|글)\\s*:\\s*([^ \\n\\r,·/]+)"
+        },
+        "thumb": {
+          "selector": "img[itemprop=\"image\"]",
+          "attr": "src"
+        },
+        "status": {
+          "selector": ".view-content",
+          "regex": "(완결|연재중)"
+        },
+        "summary": {
+          "selector": "meta[property=\"og:description\"]",
+          "attr": "content"
+        }
+      },
+      "list": {
+        "container": ".list-body",
+        "item": "li",
+        "num": ".wr-num",
+        "title": "a",
+        "link": {
+          "selector": "a",
+          "attr": "href"
+        }
+      },
+      "viewer": {
+        "fetchMethod": "iframe",
+        "keyDiscovery": {
+          "regex": "data_attribute\\s*:\\s*['\"]([^'\"]+)['\"]",
+          "prefix": "data-"
+        },
+        "imageRegex": "https?:\\\\/\\\\/[^\"' ]+\\\\.(?:jpg|png|webp)",
+        "imageContainer": ".view-padding",
+        "imageItem": "div img",
+        "lazyAttrOptions": [
+          "data-src",
+          "data-original",
+          "data-lazy",
+          "data-url",
+          "data-img"
+        ],
+        "seriesTitle": "meta[property=\"og:title\"]",
+        "episodeTitle": "h1, .view-title",
+        "novelContent": "#novel_content"
+      }
+    },
+    {
+      "id": "toki_bookto_novel",
+      "name": "북토끼 소설 규칙",
+      "urlPattern": "https?:\\/\\/([^\\/]+\\.)?(booktoki\\d+|bookto\\d+)\\.com\\/novel\\/.*",
+      "category": "Novel",
       "meta": {
         "title": {
           "selector": "meta[name=\"subject\"]",

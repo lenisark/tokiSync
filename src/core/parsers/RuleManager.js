@@ -1,4 +1,5 @@
 import { CFG_CUSTOM_RULES } from '../config.js';
+import builtInRulesData from '../../../documentation/guides/toki_parser_rules.json';
 
 /**
  * RuleManager
@@ -6,7 +7,9 @@ import { CFG_CUSTOM_RULES } from '../config.js';
  */
 export class RuleManager {
     // Built-in rules as fallback/templates
-    static #builtInRules = [];
+    static #builtInRules = Array.isArray(builtInRulesData)
+        ? builtInRulesData
+        : (builtInRulesData.rules || []);
 
     /**
      * Get all merged rules: Custom > Built-in

@@ -4,7 +4,7 @@
         {
       "id": "toki_common",
       "name": "토끼 계열 (뉴토끼/마나토끼) 통합 규칙",
-      "urlPattern": ".*(newtoki|manatoki|comic|booktoki).*",
+      "urlPattern": ".*(newtoki\\d+|newto\\d+|manatoki\\d+|mato\\d+|booktoki\\d+|bookto\\d+|comic).*",
       "category": "Webtoon",
       "meta": {
         "title": {
