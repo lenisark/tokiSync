@@ -6,7 +6,7 @@ const fs = require('fs');
 const METADATA_MAIN = `// ==UserScript==
 // @name         TokiSync (Link to Drive)
 // @namespace    http://tampermonkey.net/
-// @version      1.8.3
+// @version      1.8.4
 // @description  Toki series sites -> Google Drive syncing tool (Bundled)
 // @author       pray4skylark
 // @updateURL    https://pray4skylark.github.io/tokiSync/tokiSync.user.js
@@ -16,6 +16,12 @@ const METADATA_MAIN = `// ==UserScript==
 // @match        https://*.com/comic/*
 // @match        https://*.com/manhwa/*
 // @match        https://*.net/comic/*
+// @include      https://newto*.com/*
+// @include      https://mato*.com/*
+// @include      https://bookto*.com/*
+// @include      https://newtoki*.com/*
+// @include      https://manatoki*.net/*
+// @include      https://booktoki*.com/*
 // @match        https://script.google.com/*
 // @match        https://*.github.io/tokiSync/*
 // @match        https://pray4skylark.github.io/tokiSync/*
@@ -47,13 +53,19 @@ const METADATA_MAIN = `// ==UserScript==
 const METADATA_NEW_CORE = `// ==UserScript==
 // @name         tokiDownloader
 // @namespace    https://github.com/crossSiteKikyo/tokiDownloader
-// @version      0.0.3
+// @version      0.0.4
 // @description  북토끼, 뉴토끼, 마나토끼 다운로더
 // @author       hehaho
 // @match        https://*.com/webtoon/*
 // @match        https://*.com/novel/*
 // @match        https://*.com/comic/*
 // @match        https://*.net/comic/*
+// @include      https://newto*.com/*
+// @include      https://mato*.com/*
+// @include      https://bookto*.com/*
+// @include      https://newtoki*.com/*
+// @include      https://manatoki*.net/*
+// @include      https://booktoki*.com/*
 // @match        https://pray4skylark.github.io/tokiSync/*
 // @match        http://localhost:*/*
 // @match        http://127.0.0.1:*/*
